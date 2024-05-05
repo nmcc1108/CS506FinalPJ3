@@ -5,16 +5,20 @@ import { Amplify } from 'aws-amplify'
 import { API } from 'aws-amplify'
 import { get } from 'aws-amplify/api'
 import awsExports from "./aws-exports";
+import {
+  CustomerCreateForm 
+ } from './ui-components';
 
-const myAPI = "api15e8eec5"
+const myAPI = "cs506finalpj3"
 const path = '/customers'; 
 
 const App = () => {
   const [input, setInput] = useState("")
   const [customers, setCustomers] = useState([])
-
+  const [formData, setFormData] = useState()
   //Function to fetch from our backend and update customers array
   async function getCustomer(e) {
+    console.log(e)
     let customerId = e.input
     const restOperation = get({apiName: myAPI, path: path + "/" + customerId})
     const { body } = await restOperation.response;
@@ -30,13 +34,33 @@ const App = () => {
     <div className="App">
       <h1>CS506 Final</h1>
       <h2>Customer Input</h2>
+
+      <CustomerCreateForm
+      
+        onChange={(fields) => {
+        console.log({ fields })
+        // make sure you return fields!
+        return(
+          <form onSubmit={handleSubmit}>
+            <label>Enter your name:
+              <input 
+                type="text" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <input type="submit" />
+          </form>
+        ) fields
+  }}
+      />
       <div>
           <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
       </div>
       <br/>
-      <button onClick={() => getCustomer({input})}>Get Customer From Backend</button>
+      <button onClick={() => getCustomer({input})}>Send</button>
 
-      <h2 style={{visibility: customers.length > 0 ? 'visible' : 'hidden' }}>Response</h2>
+      <h3 style={{visibility: customers.length > 0 ? 'visible' : 'hidden' }}>Welcome</h3>
       {
        customers.map((thisCustomer, index) => {
          return (
