@@ -51,7 +51,7 @@ const App = () => {
             </label>
             <input type="submit" />
           </form>
-        ) fields
+        ) 
   }}
       />
       <div>
