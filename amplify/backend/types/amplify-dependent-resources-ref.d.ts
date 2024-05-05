@@ -4,6 +4,11 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
+    },
+    "cs506finalpj3": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
     }
   },
   "function": {
