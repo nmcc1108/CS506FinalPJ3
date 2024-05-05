@@ -16,7 +16,7 @@ const App = () => {
   //Function to fetch from our backend and update customers array
   async function getCustomer(e) {
     let customerId = e.input
-    const restOperation = get({apiName: myAPI, path: path + "/" + customerId + firstName + lastName})
+    const restOperation = get({apiName: myAPI, path: path + "/" + customerId})
     const { body } = await restOperation.response;
     const response = await body.json();
     console.log(response)
