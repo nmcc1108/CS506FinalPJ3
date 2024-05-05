@@ -36,22 +36,16 @@ const App = () => {
       <h2>Customer Input</h2>
 
       <CustomerCreateForm
-      
+        overrrides={{
+          content:{
+            label: "Customer Info"
+          }
+        }}
+        
         onChange={(fields) => {
         console.log({ fields })
         // make sure you return fields!
-        return(
-          <form onSubmit={handleSubmit}>
-            <label>Enter your name:
-              <input 
-                type="text" 
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
-            <input type="submit" />
-          </form>
-        ) 
+        return fields
   }}
       />
       <div>
