@@ -15,7 +15,9 @@ const App = () => {
 
   //Function to fetch from our backend and update customers array
   async function getCustomer(e) {
-    let customerId = e.input
+    let customerId = e.customerId
+    let firstName = e.firstName
+    let lastName = lastName
     const restOperation = get({apiName: myAPI, path: path + "/" + customerId})
     const { body } = await restOperation.response;
     const response = await body.json();
@@ -38,14 +40,14 @@ const App = () => {
       <form>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="First name" value={input} onChange={(e) => setInput(e.target.value)}/>
+            <input type="text" class="form-control" placeholder="First name" value={input} onChange={(e) => setInput(e.firstName)}/>
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" value={input} onChange={(e) => setInput(e.target.value)}/>
+            <input type="text" class="form-control" placeholder="Last name" value={input} onChange={(e) => setInput(e.lastName)}/>
           </div>
         </div>
       </form>
-          <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
+          <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.customerId)}/>      
       </div>
       <br/>
 
