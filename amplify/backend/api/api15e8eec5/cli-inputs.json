@@ -8,14 +8,14 @@
         "setting": "open"
       }
     },
-    "/customers/{firstName}": {
+    "/firstName/{firstName}": {
       "name": "/firstName/{firstName}",
       "lambdaFunction": "CustomerHandler",
       "permissions": {
         "setting": "open"
       }
     },
-    "/customers/{lastName}": {
+    "/lastName/{lastName}": {
       "name": "/lastName/{lastName}",
       "lambdaFunction": "CustomerHandler",
       "permissions": {
