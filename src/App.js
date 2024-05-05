@@ -16,7 +16,7 @@ const App = () => {
   //Function to fetch from our backend and update customers array
   async function getCustomer(e) {
     let customerId = e.input
-    const restOperation = get({apiName: myAPI, path: path + "/" + customerId})
+    const restOperation = get({apiName: myAPI, path: path + "/" + customerId + firstName + lastName})
     const { body } = await restOperation.response;
     const response = await body.json();
     console.log(response)
@@ -35,26 +35,20 @@ const App = () => {
       <h1>CS506 Final</h1>
       <h2>Customer Input</h2>
       <div>
-
       <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" value={input} onChange={(e) => setInput(e.target.value)}/>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" value={input} onChange={(e) => setInput(e.target.value)}/>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
           <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
       </div>
       <br/>
+
       <button onClick={() => getCustomer({input})}>Get Customer From Backend</button>
 
       <h2 style={{visibility: customers.length > 0 ? 'visible' : 'hidden' }}>Response</h2>
@@ -62,7 +56,7 @@ const App = () => {
        customers.map((thisCustomer, index) => {
          return (
         <div key={thisCustomer.customerId}>
-          <span><b>CustomerId:</b> {thisCustomer.customerId} - <b>CustomerName</b>: {thisCustomer.customerName}</span>
+          <span><b>CustomerId:</b> {thisCustomer.customerId} - <b>CustomerName</b>: {thisCustomer.firstName} - {thisCustomer.lastName}</span>
         </div>)
        })
       }
@@ -71,8 +65,7 @@ const App = () => {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </div>
-
-    
+  
   )
 }
 
