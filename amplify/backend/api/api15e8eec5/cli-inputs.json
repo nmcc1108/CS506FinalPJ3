@@ -7,20 +7,6 @@
       "permissions": {
         "setting": "open"
       }
-    },
-    "/firstName/{firstName}": {
-      "name": "/firstName/{firstName}",
-      "lambdaFunction": "CustomerHandler",
-      "permissions": {
-        "setting": "open"
-      }
-    },
-    "/lastName/{lastName}": {
-      "name": "/lastName/{lastName}",
-      "lambdaFunction": "CustomerHandler",
-      "permissions": {
-        "setting": "open"
-      }
     }
   }
 }
