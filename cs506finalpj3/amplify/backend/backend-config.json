@@ -1,0 +1,44 @@
+{
+  "api": {
+    "api15e8eec5": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "CustomerHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "CustomerHandler": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_CustomerHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CustomerHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_CustomerHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CustomerHandler"
+        }
+      ]
+    }
+  }
+}
